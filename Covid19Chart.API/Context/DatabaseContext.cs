@@ -34,17 +34,11 @@ namespace Covid19Chart.API.Context
             modelBuilder.Entity<Country>(entity =>
             {
                 entity.ToTable("Country");
-
-                entity.Property(e => e.Country1).HasColumnName("Country");
             });
 
             modelBuilder.Entity<Covid>(entity =>
             {
                 entity.ToTable("Covid");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
-                entity.Property(e => e.CountryId).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.CovidDate).HasColumnType("date");
 
