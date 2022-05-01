@@ -41,12 +41,6 @@ namespace Covid19Chart.API.Context
                 entity.ToTable("Covid");
 
                 entity.Property(e => e.CovidDate).HasColumnType("date");
-
-                entity.HasOne(d => d.Country)
-                    .WithMany(p => p.Covids)
-                    .HasForeignKey(d => d.CountryId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Covid_Country");
             });
 
             OnModelCreatingPartial(modelBuilder);
